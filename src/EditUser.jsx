@@ -17,7 +17,7 @@ function EditUser() {
   });
 
   useEffect(() => {
-    fetch(`https://load-backend-pmfq.onrender.com/api/users/${id}`)
+    fetch(`https://loan-backend-ijdt.onrender.com/api/users/${id}`)
       .then(res => res.json())
       .then(data => setFormData(data))
       .catch(err => console.error('Failed to fetch user:', err));
@@ -33,7 +33,7 @@ function EditUser() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`https://load-backend-pmfq.onrender.com/api/users/${id}`, {
+    const res = await fetch(`https://loan-backend-ijdt.onrender.com/api/users/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)

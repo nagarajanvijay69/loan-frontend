@@ -9,7 +9,7 @@ function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://load-backend-pmfq.onrender.com/api/users')
+    fetch('https://loan-backend-ijdt.onrender.com/api/users')
       .then(res => res.json())
       .then(data => {
         setUsers(data);
@@ -31,7 +31,7 @@ function Dashboard() {
 
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure to delete?')) return;
-    await fetch(`https://load-backend-pmfq.onrender.com/api/users/${id}`, { method: 'DELETE' });
+    await fetch(`https://loan-backend-ijdt.onrender.com/api/users/${id}`, { method: 'DELETE' });
     setUsers(prev => prev.filter(user => user._id !== id));
     setFiltered(prev => prev.filter(user => user._id !== id));
   };

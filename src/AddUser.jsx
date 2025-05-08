@@ -25,7 +25,7 @@ function AddUser() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch('https://load-backend-pmfq.onrender.com/api/users', {
+    const res = await fetch('https://loan-backend-ijdt.onrender.com/api/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
