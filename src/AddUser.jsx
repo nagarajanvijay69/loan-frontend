@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AddUser.css';
+import axios from 'axios';
 
 function AddUser() {
   const navigate = useNavigate();
@@ -25,13 +26,9 @@ function AddUser() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch('https://loan-backend-ijdt.onrender.com/api/users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
+    const res = await axios.post('https://loan-backend-ijdt.onrender.com/api/users', formData); // Removed method, headers, and body options
 
-    if (res.ok) {
+    if (res.status === 200) {
       navigate('/dashboard');
     } else {
       alert('Failed to add user.');

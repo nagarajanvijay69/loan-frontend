@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './EditUser.css';
+import axios from 'axios';
 
 function EditUser() {
   const { id } = useParams();
@@ -17,9 +18,8 @@ function EditUser() {
   });
 
   useEffect(() => {
-    fetch(`https://loan-backend-ijdt.onrender.com/api/users/${id}`)
-      .then(res => res.json())
-      .then(data => setFormData(data))
+    axios.get(`https://loan-backend-ijdt.onrender.com/api/users/${id}`)
+      .then(res => setFormData(res.data))
       .catch(err => console.error('Failed to fetch user:', err));
   }, [id]);
 
@@ -33,13 +33,9 @@ function EditUser() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`https://loan-backend-ijdt.onrender.com/api/users/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
+    const res = await axios.put(`https://loan-backend-ijdt.onrender.com/api/users/${id}`, formData);
 
-    if (res.ok) {
+    if (res.status === 200) {
       navigate('/dashboard');
     } else {
       alert('Update failed.');

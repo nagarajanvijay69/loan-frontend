@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
+import axios from 'axios';
 
 function Dashboard() {
   const [users, setUsers] = useState([]);
@@ -9,11 +10,10 @@ function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://loan-backend-ijdt.onrender.com/api/users')
-      .then(res => res.json())
-      .then(data => {
-        setUsers(data);
-        setFiltered(data);
+    axios.get('https://loan-backend-ijdt.onrender.com/api/users')
+      .then(res => {
+        setUsers(res.data);
+        setFiltered(res.data);
       })
       .catch(err => console.error('Fetch error:', err));
   }, []);
@@ -31,7 +31,7 @@ function Dashboard() {
 
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure to delete?')) return;
-    await fetch(`https://loan-backend-ijdt.onrender.com/api/users/${id}`, { method: 'DELETE' });
+    await axios.delete(`https://loan-backend-ijdt.onrender.com/api/users/${id}`); // Removed method option
     setUsers(prev => prev.filter(user => user._id !== id));
     setFiltered(prev => prev.filter(user => user._id !== id));
   };
