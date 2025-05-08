@@ -17,7 +17,7 @@ function EditUser() {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/users/${id}`)
+    fetch(`https://load-backend-hln6.onrender.com/api/users/${id}`)
       .then(res => res.json())
       .then(data => setFormData(data))
       .catch(err => console.error('Failed to fetch user:', err));
@@ -33,7 +33,7 @@ function EditUser() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:5000/api/users/${id}`, {
+    const res = await fetch(`https://load-backend-hln6.onrender.com/api/users/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)

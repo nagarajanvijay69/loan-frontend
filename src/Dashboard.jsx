@@ -9,7 +9,7 @@ function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/users')
+    fetch('https://load-backend-hln6.onrender.com/api/users')
       .then(res => res.json())
       .then(data => {
         setUsers(data);
@@ -31,7 +31,7 @@ function Dashboard() {
 
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure to delete?')) return;
-    await fetch(`http://localhost:5000/api/users/${id}`, { method: 'DELETE' });
+    await fetch(`https://load-backend-hln6.onrender.com/api/users/${id}`, { method: 'DELETE' });
     setUsers(prev => prev.filter(user => user._id !== id));
     setFiltered(prev => prev.filter(user => user._id !== id));
   };
