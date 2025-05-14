@@ -1,0 +1,45 @@
+.add-user-page {
+  padding: 20px;
+  font-family: 'outfit';
+}
+
+.add-user-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.user-form input,
+.user-form select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.user-form button {
+  padding: 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.user-form button:hover {
+  background-color: #1256a2;
+}
+
+@media (max-width: 600px) {
+  .user-form {
+    padding: 0 10px;
+  }
+}
