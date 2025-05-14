@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Adduser from './pages/Adduser';
-import Edituser from './pages/EditUser';
+import Edituser from './pages/Edituser';
 
 function App() {
   const isLoggedIn =  localStorage.getItem('isAdmin') === 'true';
