@@ -42,14 +42,14 @@ function Dashboard() {
 
     const user = users.find(user => user._id === id);
 
-    if(user.paidThisMonth === 'Yes') {
+    if (user.paidThisMonth === 'Yes') {
       alert('Already paid this month');
       return;
     }
     if (!window.confirm('Are you sure to mark as paid?')) return;
     await axios.put(`${PORT}/users/paid/${id}`, { paidThisMonth: 'Yes' });
 
-        axios.get(`${PORT}/api/users`)
+    axios.get(`${PORT}/api/users`)
       .then(res => {
         setUsers(res.data);
         setFiltered(res.data);
@@ -63,7 +63,7 @@ function Dashboard() {
   const handleUnpaid = async (id) => {
     const user = users.find(user => user._id === id);
 
-    if(user.paidThisMonth === 'No') {
+    if (user.paidThisMonth === 'No') {
       alert('Already unpaid this month');
       return;
     }
@@ -73,7 +73,7 @@ function Dashboard() {
     await axios.put(`${PORT}/users/unpaid/${id}`, { paidThisMonth: 'No' });
 
 
-       axios.get(`${PORT}/api/users`)
+    axios.get(`${PORT}/api/users`)
       .then(res => {
         setUsers(res.data);
         setFiltered(res.data);
@@ -129,8 +129,13 @@ function Dashboard() {
             <div className="btns">
               <button className="edit" onClick={() => navigate(`/edit/${user._id}`)}>Edit</button>
               <button className="delete" onClick={() => handleDelete(user._id)}>Delete</button>
-              <button className="reset-paid" onClick={() => handlePaid(user._id)}>Paid</button>
-              <button className="reset-unpaid" onClick={() => handleUnpaid(user._id)}>Unpaid</button>
+              {
+                user.paidThisMonth == "No" ?
+                  <button className="reset-paid" onClick={() => handlePaid(user._id)}>Paid</button>
+                  :
+                  <button className="reset-unpaid" onClick={() => handleUnpaid(user._id)}>Unpaid</button>
+
+              }
             </div>
           </div>
         ))}

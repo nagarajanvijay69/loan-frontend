@@ -49,7 +49,7 @@ function Adduser() {
         <input type="number" name="totalAmount" placeholder="Total Loan Amount" onChange={(e)=> dispatch(setTotalAmount(e.target.value))} required value={user.totalAmount} />
         <input type="text" name="duration" placeholder="Loan Duration in Years" onChange={(e)=> dispatch(setDuration(e.target.value))} required value={user.duration} />
         <input type="number" name="interest" placeholder="Interest Rate (%)" onChange={(e)=> dispatch(setInterest(e.target.value))} required value={user.interest} />
-        <input type="number" name="monthlyPayment" placeholder="Monthly Payment" onChange={(e)=> dispatch(setMonthlyPayment(e.target.value))} required value={user.monthlyPayment} />
+        {/* <input type="number" name="monthlyPayment" placeholder="Monthly Payment" onChange={(e)=> dispatch(setMonthlyPayment(e.target.value))} required value={user.monthlyPayment} /> */}
         <input type="number" name="paidNow" placeholder="Paid Till Now" onChange={(e)=> dispatch(setPaidNow(e.target.value))} required value={user.paidNow} />
         <input type="date" name="loanStart" placeholder="Loan Start Date" onChange={(e)=> dispatch(setLoanStart(e.target.value))} required value={user.loanStart.slice(0, 10)} />
         <input type="date" name="loanEnd" placeholder="Loan End Date" onChange={(e)=> dispatch(setLoanEnd(e.target.value))} required value={user.loanEnd.slice(0, 10)} />
