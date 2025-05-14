@@ -139,7 +139,7 @@ function Dashboard() {
             <p><strong>Monthly Payment:</strong> {user.monthlyPayment.toFixed(2)}</p>
             <p><strong>Loan Start:</strong> {user.loanStart.slice(0, 10)}</p>
             <p><strong>Loan End:</strong> {user.loanEnd.slice(0, 10)}</p>
-            <p><strong>Paid This Month:</strong> {user.paidThisMonth}</p>
+            {/* <p><strong>Paid This Month:</strong> {user.paidThisMonth}</p> */}
             <div className="btns">
               <button className="edit" onClick={() => navigate(`/edit/${user._id}`)}>Edit</button>
               <button className="delete" onClick={() => handleDelete(user._id)}>Delete</button>
