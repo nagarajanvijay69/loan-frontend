@@ -25,10 +25,18 @@ function Dashboard() {
       setFiltered(users.filter(user => user.paidThisMonth === 'Yes'));
     } else if (type === 'unpaid') {
       setFiltered(users.filter(user => user.paidThisMonth === 'No'));
-    } else {
-      setFiltered(users);
+    } else if (type === 'all') {
+      setFiltered(users)
+    } else if (type === '') {
+      setFiltered(users)
+
+    }
+    else {
+      setFiltered(users.filter(user => user.name.toLowerCase() == type.toLowerCase()));
     }
   };
+
+
 
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure to delete?')) return;
@@ -111,6 +119,12 @@ function Dashboard() {
           + Add User
         </button>
       </div>
+        <div className="search">
+          <h3>Search Here</h3>
+          <input type="search" onChange={(e) => {
+            handleFilter(e.target.value);
+          }} placeholder='Enter user name'/>
+        </div>
 
       <div className="user-list">
         {filtered.map(user => (

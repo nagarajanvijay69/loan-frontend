@@ -43,6 +43,7 @@
 .paid {
   background-color: #1db203;
 }
+
 .unpaid {
   background-color: #c40216;
 }
@@ -90,30 +91,50 @@
   font-family: 'outfit';
 }
 
-.dashboard .edit{
+.dashboard .edit {
   background-color: #1976d2;
   color: white;
   font-family: 'outfit';
 }
 
 
-.dashboard .edit{
+.dashboard .edit {
   background-color: #1976d2;
   color: white;
   font-family: 'outfit';
 }
 
-.dashboard .reset-paid{
+.dashboard .reset-paid {
   background-color: #00f308;
   color: white;
   font-family: 'outfit';
 }
 
-.dashboard .reset-unpaid{
+.dashboard .reset-unpaid {
   background-color: #fc2626;
   color: white;
   font-family: 'outfit';
 }
+
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 130px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.search input {
+  height: 50px;
+  width: 90%;
+  border-radius: 9px;
+  border: none;
+  padding: 0px 20px;
+  outline: black 2px solid;
+}
+
 
 @media (max-width: 768px) {
   .stats {
