@@ -10,7 +10,7 @@ import { setName, setDuration, setInterest, setLoanEnd, setLoanStart,
 
 function Adduser() {
 
-  const PORT = "http://localhost:5000";
+  const PORT = "https://loan-backend-hl9g.onrender.com";
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
 

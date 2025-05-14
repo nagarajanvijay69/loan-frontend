@@ -4,7 +4,7 @@ import './Edituser.css';
 import axios from 'axios';
 
 function Edituser() {
-  const PORT = "http://localhost:5000";
+  const PORT = "https://loan-backend-hl9g.onrender.com";
 
 
   const { id } = useParams();
