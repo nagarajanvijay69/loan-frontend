@@ -11,13 +11,17 @@ function Dashboard() {
   const PORT = "https://loan-backend-hl9g.onrender.com";
 
   useEffect(() => {
-    axios.get(`${PORT}/api/users`)
+     getFunction();
+  }, []);
+
+  const getFunction = async() =>{
+    await axios.get(`${PORT}/api/users`)
       .then(res => {
         setUsers(res.data);
         setFiltered(res.data);
       })
       .catch(err => console.error('Fetch error:', err));
-  }, []);
+  }
 
   const handleFilter = (type) => {
     setFilterType(type);
